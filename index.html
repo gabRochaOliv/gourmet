@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Aprenda a fazer geladinhos gourmet irresistíveis e crie uma renda extra em casa com mais de 50 receitas exclusivas.">
+    <meta name="theme-color" content="#FA8072"> <!-- Matches navbar color -->
+    <title>Geladinho Gourmet Lucrativo | Renda Extra em Casa</title>
+
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon"> <!-- User to update icon later -->
+    <link rel="icon" href="img/icon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Fruit Drip Intro Animation -->
+    <div id="chocolate-drip-overlay" aria-hidden="true">
+        <div class="drip-container">
+            <!-- Glossy fruit wave constructed with CSS/SVG -->
+            <svg class="drip-svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="chocGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FA8072;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#D32F2F;stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="gloss" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur in="SourceAlpha" stdDeviation="15" result="blur" />
+                        <feSpecularLighting in="blur" surfaceScale="5" specularConstant="0.75" specularExponent="20"
+                            result="specOut">
+                            <fePointLight x="-5000" y="-10000" z="20000" />
+                        </feSpecularLighting>
+                        <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut" />
+                        <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1"
+                            k4="0" />
+                    </filter>
+                </defs>
+                <path fill="url(#chocGradient)" filter="url(#gloss)" d="M0,0L1440,0L1440,160L0,160Z" class="drip-base">
+                </path>
+                <!-- Individual drips integrated into the path or separate for animation flexibility. 
+                     Here we use a complex path for the wave and separate elements for drips in CSS for easy vertical animation. 
+                     Actually, to ensure organic feel without heavy assets, we will use the CSS implementation in styles.css 
+                     targeted at .drip-col elements inside this container.
+                -->
+            </svg>
+            <div class="drips">
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">Geladinho <br>Gourmet.</a>
+            <a href="#offer" class="nav-badge">
+                ADQUIRA JÁ
+            </a>
+        </div>
+        <div class="nav-drips">
+            <svg class="drip-svg-nav" viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path
+                    d="M0,0 H1440 V40 C1350,40 1350,110 1250,110 C1150,110 1150,40 1050,40 C950,40 950,90 850,90 C750,90 750,40 650,40 C550,40 550,120 450,120 C350,120 350,40 250,40 C150,40 150,80 50,80 C20,80 0,60 0,60 Z">
+                </path>
+            </svg>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content fade-in">
+                <span class="eyebrow">Lucrativo & Delicioso</span>
+                <h1 class="hero-title">
+                    <span>Curso Profissional</span>
+                    <span>com <span class="highlight-text">+30 Receitas </span></span>
+                    <span>de Geladinhos Gourmet</span>
+                </h1>
+
+                <p class="hero-sub">
+                    Uma forma simples de <strong>ganhar dinheiro</strong> com Geladinhos Gourmet:
+                    <strong>vídeo aulas curtas</strong>, explicadas <strong>passo a passo</strong>, sem complicação.
+                </p>
+
+
+                <div class="trust-pills">
+                    <h2>Incluso:</h2>
+                    <span class="pill highlight-red">✓ +25 Vídeo Aulas</span>
+                    <span class="pill highlight-red">✓ Ebook Dicas de Cardápio</span>
+                    <span class="pill highlight-red">✓ Acesso Vitalício </span>
+                    <span class="pill highlight-red">✓ BÔNUS de Fevereiro</span>
+
+                </div>
+
+                <a href="#offer" class="cta-button pulse">Quero Aprender Agora</a>
+
+                <div class="hero-guarantee-badge">
+                    <span class="guarantee-icon">🛡️</span>
+                    <span class="guarantee-text">Garantia de 7 Dias</span>
+                </div>
+            </div>
+        </div>
+        <div class="wave-bottom"></div>
+    </header>
+
+    <!-- What You Get Section -->
+    <section class="section features" id="features">
+        <div class="container">
+            <div class="section-header center fade-in">
+                <h2>Um Pouco das Receitas...</h2>
+                <p>Um <strong>Liquidificador</strong> e <strong>Ingredientes</strong> certos, você faz tudo isso:</p>
+            </div>
+
+            <!-- Product Showcase Carousel -->
+            <div class="p-gallery-container fade-in">
+                <div class="p-gallery-track">
+                    <!-- Set 1 -->
+                    <div class="p-slide">
+                        <div class="p-slide-item">
+                            <img src="img/geladinho-ninho-nutela.png" alt="Geladinho Ninho com Nutella">
+                        </div>
+                    </div>
+
+                    <div class="p-slide">
+                        <div class="p-slide-item">
+                            <img src="img/geladinhOreo.png" alt="Geladinho Morango">
+                        </div>
+                    </div>
+
+                    <div class="p-slide">
+                        <div class="p-slide-item">
+                            <img src="img/danoninho.png" alt="Geladinho Oreo">
+                        </div>
+                    </div>
+                    <div class="p-slide">
+                        <div class="p-slide-item">
+                            <img src="img/pacoca.png" alt="Geladinho Maracujá">
+                        </div>
+                    </div>
+                    <div class="p-slide">
+                        <div class="p-slide-item">
+                            <img src="img/maracuja.png" alt="Geladinho KitKat">
+                        </div>
+                    </div>
+                    <div class="p-slide">
+                        <div class="p-slide-item">
+                            <img src="img/limaoChocolate.png" alt="Geladinho Sonho de Valsa">
+                        </div>
+                    </div>
+                    <div class="p-slide">
+                        <div class="p-slide-item">
+                            <img src="img/sonhoDeValsa.png" alt="Geladinho Alcoólico">
+                        </div>
+                    </div>
+
+                    <!-- Set 2 (Duplicate for Infinity) -->
+                    <div class="p-slide">
+                        <div class="p-slide-item">
+                            <img src="img/geladinho-ninho-nutela.png" alt="Geladinho Ninho com Nutella">
+                        </div>
+                    </div>
+
+                    <div class="p-slide">
+                        <div class="p-slide-item">
+                            <img src="img/geladinhOreo.png" alt="Geladinho Morango">
+                        </div>
+                    </div>
+
+                    <div class="p-slide">
+                        <div class="p-slide-item">
+                            <img src="img/danoninho.png" alt="Geladinho Oreo">
+                        </div>
+                    </div>
+                    <div class="p-slide">
+                        <div class="p-slide-item">
+                            <img src="img/pacoca.png" alt="Geladinho Maracujá">
+                        </div>
+                    </div>
+                    <div class="p-slide">
+                        <div class="p-slide-item">
+                            <img src="img/maracuja.png" alt="Geladinho KitKat">
+                        </div>
+                    </div>
+                    <div class="p-slide">
+                        <div class="p-slide-item">
+                            <img src="img/limaoChocolate.png" alt="Geladinho Sonho de Valsa">
+                        </div>
+                    </div>
+                    <div class="p-slide">
+                        <div class="p-slide-item">
+                            <img src="img/sonhoDeValsa.png" alt="Geladinho Alcoólico">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Detailed Content Modules -->
+    <!-- Special Alcoholic Section (New) -->
+    <section class="section special-alcoholic" id="alcoholic">
+
+        <!-- Wave Transition -->
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="special-badge fade-in"> Incluso ✓</div>
+                <div class="col-text fade-in">
+                    <h2>Linha Drinks Gourmet</h2>
+                    <h3>Caipirinha <span class="drink-icon">🍹</span></h3>
+                    <p class="lead-text">O segredo para faturar alto em festas, eventos e nos finais de semana.</p>
+
+                    <div class="col-visual-drink fade-in delay-100">
+                        <!-- Placeholder for User's Vodka Image -->
+                        <div class="drink-image-container">
+                            <img src="img/capirinhaVodka.png" alt="Geladinhos Alcoólicos" class="drink-img">
+                            <div class="floating-drink-badge">Para o Carnaval🎭</div>
+                            <div class="glow-effect"></div>
+                        </div>
+                    </div>
+                    <ul class="drink-list">
+                        <li>
+                            <span class="icon">🍓</span>
+                            <div class="text">
+                                <strong>Sensação de Morango</strong>
+                                <p>O queridinho que seduz! Pedaços de fruta fresca que explodem na boca. <strong>Venda
+                                        certa</strong> em qualquer evento.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">🍋‍🟩</span>
+                            <div class="text">
+                                <strong>Limão Clássico</strong>
+                                <p>A autêntica caipirinha no saquinho. O equilíbrio perfeito entre o azedinho e o doce
+                                    que <strong>vicia o paladar</strong>.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">✨</span>
+                            <div class="text">
+                                <strong>Paixão de Maracujá</strong>
+                                <p>Cremoso, tropical e sofisticado. Aquele sabor marcante que faz o cliente
+                                    <strong>pagar mais caro</strong> sorrindo.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <!-- Wave Transition Bottom -->
+        <div class="wave-divider-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Detailed Content Modules -->
+    <section class="section modules alt-bg">
+        <div class="container">
+            <div class="row centered-row">
+                <!-- Book Removed as requested -->
+
+                <div class="col-text fade-in center-mobile-content">
+                    <h2>São 🖖 Módulos <br>+ <span class="highlight-bonus"></span><span
+                            class="highlight-bonus">BÔNUS</span>
+                    </h2>
+                    <p class="lead">Domine todos os segredos para produzir e vender geladinhos profissionais.</p>
+
+                    <div class="module-list">
+                        <div class="module-item">
+                            <span class="mod-number">01</span>
+                            <div class="mod-info">
+                                <h4>Introdução & Base Profissional</h4>
+                                <p>Os fundamentos para começar certo: Utensílios essenciais e a minha <strong>Liga Base
+                                        Secreta</strong> (O segredo da cremosidade).</p>
+                            </div>
+                        </div>
+                        <div class="module-item">
+                            <span class="mod-number">02</span>
+                            <div class="mod-info">
+                                <h4>Tradicionais & Frutas</h4>
+                                <p>Sabores de alta saída para o dia a dia: Ninho com Nutella, Açaí, Detox Verde,
+                                    Danoninho <strong>e +10 receitas</strong>.</p>
+                            </div>
+                        </div>
+                        <div class="module-item">
+                            <span class="mod-number">03</span>
+                            <div class="mod-info">
+                                <h4>Gourmet com Chocolate</h4>
+                                <p>Os mais lucrativos e desejados: Kit Kat, Sonho de Valsa, Sensação Trufado, Paçoca
+                                    <strong>e muito mais</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="module-item">
+                            <span class="mod-number">04</span>
+                            <div class="mod-info">
+                                <h4>Linha Alcoólica (Verão)</h4>
+                                <p>Opção extra para faturar alto em festas: Caipirinha, Vodka com Morango e
+                                    <strong>drinks no saquinho</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="module-item">
+                            <span class="mod-number bonus-star">★</span>
+                            <div class="mod-info">
+                                <h4>BÔNUS: Geladinhos Especiais</h4>
+                                <p>Receitas diferenciadas para se destacar da concorrência.</p>
+                                <div class="bonus-floating-tag">Vem Descobrir 😋</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section features" id="features">
+        <div class="container">
+            <div class="centered-badge-container">
+                <div class="special-badge special-badge-gold fade-in"> Incluso Também ✓</div>
+
+            </div>
+            <div class="col-visual fade-in">
+                <!-- Book Container with Hinge Logic -->
+                <div class="book-container-hinge" id="interactive-book">
+
+                    <!-- The Static "Inside" Page (Always visible but covered initially) -->
+                    <div class="book-inside-static">
+                        <div class="chapter-preview">
+                            <h6>Página 02</h6>
+                            <h5>Saiba Como Usar</h5>
+                            <p>"Comece com poucos sabores. Conforme a procura aumentar, você..."</p>
+                            <span class="read-more">Continue lendo no E-book</span>
+                        </div>
+                    </div>
+
+                    <!-- The Rotating Cover -->
+                    <div class="book-cover-hinge">
+                        <div class="cover-design">
+                            <span class="title">Dicas de Cardápio Profissional</span>
+                            <span class="subtitle">Geladinhos Gourmet</span>
+                            <div class="spine-visual"></div>
+                        </div>
+                        <!-- Hint is attached to the cover -->
+                        <div class="click-hint-badge">👆 Abrir</div>
+                    </div>
+
+                    <!-- Visual Spines/Pages depth -->
+                    <div class="book-side-pages"></div>
+                </div>
+            </div>
+
+            <!-- Creative Speech Bubble -->
+            <div class="customer-speech-bubble fade-in">
+                <span class="emoji">🤔</span> "Poxa, mas eu queria algo a mais..."
+            </div>
+
+            <h2 class="special-title">Por +R$19,90 você leva: <br> <span
+                    style="font-size: 0.7em; color: #E65100; font-weight: 700;">+1 Ebook</span></h2>
+
+            <div class="grid-3">
+                <div class="card feature-card highlight fade-in delay-100 bonus-selectable" data-price="47.00">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="bonus1" class="bonus-check">
+                        <label for="bonus1" class="custom-checkbox"></label>
+                    </div>
+                    <div class="badge-bonus">ADICIONAL </div>
+                    <!-- Icon replaced/enhanced -->
+                    <div class="card-icon" style="font-size: 3rem; margin-bottom: 10px;">💰</div>
+
+                    <h3 class="bonus-highlight-title">Guia do Lucro <span>Com Geladinhos Gourmet</span></h3>
+
+                    <ul class="benefit-list" style="text-align: left; margin-bottom: 20px; padding-left: 10px;">
+                        <li style="list-style: none; margin-bottom: 8px;">✅ Como lucrar com <strong>pequenos
+                                volumes</strong>.</li>
+                        <li style="list-style: none; margin-bottom: 8px;">✅ <strong>Precificação Correta</strong> (Custo
+                            real).</li>
+                        <li style="list-style: none; margin-bottom: 8px;">✅ Estratégias de venda rápida.</li>
+                    </ul>
+
+                    <div style="background: #FFF3E0; padding: 5px 15px; border-radius: 20px; display: inline-block;">
+                        <small style="color: #E65100; font-weight: 700;">Valor Isolado: <strike style="color: #999;">R$
+                                44,90</strike></small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Audience Section -->
+
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-header center fade-in">
+                <h2>Eles não são exceção e você também não será!</h2>
+            </div>
+            <div class="grid-3"> <!-- Changed to grid-3 for better fit of 6 items -->
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card fade-in delay-100">
+                    <div class="quote-icon">❝</div>
+                    <p class="test-text">"Vendi 50 geladinhos só no meu condomínio no primeiro fim de semana. A receita
+                        de Ninho com Nutella é sucesso absoluto!🙏"</p>
+                    <div class="test-author">
+                        <img src="img/pessoas/pessoa3.avif" class="author-img" alt="Foto Aluno">
+                        <div class="author-info">
+                            <h5>Renata S.</h5>
+                            <span class="location">São Paulo, SP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card fade-in delay-200">
+                    <div class="quote-icon">❝</div>
+                    <p class="test-text">"Nunca imaginei faturar com geladinho. Hoje é minha renda principal
+                        trabalhando de casa, consegui fazer as receitas rapidinhoo hahaha"</p>
+                    <div class="test-author">
+                        <img src="img/pessoas/pessoa1.avif" class="author-img" alt="Foto Aluno">
+                        <div class="author-info">
+                            <h5>Fernanda L.</h5>
+                            <span class="location">Rio de Janeiro, RJ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card fade-in delay-300">
+                    <div class="quote-icon">❝</div>
+                    <p class="test-text">"A base que o curso ensina é perfeita, muito prático. Meus clientes
+                        amam o de Ninho com Nutella aqui. "</p>
+                    <div class="test-author">
+                        <img src="img/pessoas/pessoaA.jpg" class="author-img" alt="Foto Aluno">
+                        <div class="author-info">
+                            <h5>Ana Maria C.</h5>
+                            <span class="location">Recife, PE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card fade-in delay-100">
+                    <div class="quote-icon">❝</div>
+                    <p class="test-text">"Comecei com 50 reais emprestados do meu marido. Hoje já consigo ajudar em casa
+                        ❤️"</p>
+                    <div class="test-author">
+                        <img src="img/pessoas/pessoaB.jpg" class="author-img" alt="Foto Aluno">
+                        <div class="author-info">
+                            <h5>Luciana M.</h5>
+                            <span class="location">Belo Horizonte, MG</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card fade-in delay-200">
+                    <div class="quote-icon">❝</div>
+                    <p class="test-text">"Melhor investimento que fiz. Paguei o curso com a primeira fornada. Super
+                        recomendo a todas! "</p>
+                    <div class="test-author">
+                        <img src="img/pessoas/pessoaC.jpg" class="author-img" alt="Foto Aluno">
+                        <div class="author-info">
+                            <h5>Julia R.</h5>
+                            <span class="location">Curitiba, PR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card fade-in delay-300">
+                    <div class="quote-icon">❝</div>
+                    <p class="test-text">"O ebook de preço me ajudou muito a me organizar, estiva perdida kkk."</p>
+                    <div class="test-author">
+                        <img src="img/pessoas/pessoaD.avif" class="author-img" alt="Foto Aluno">
+                        <div class="author-info">
+                            <h5>Carla F.</h5>
+                            <span class="location">Salvador, BA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price/Offer Section -->
+    <section class="section offer" id="offer">
+        <div class="container narrow">
+            <div class="offer-card urgency-mode fade-in">
+
+                <!-- New Compact Header with Scarcity & Social Proof -->
+                <div class="offer-header-redesign">
+
+                    <div class="scarcity-text">
+                        <span>⚠️ Oferta expira em:</span>
+                        <span class="timer-digits">
+                            <span id="hours">02</span>:<span id="minutes">45</span>:<span id="seconds">02</span>
+                        </span>
+                    </div>
+
+                    <p class="social-proof">
+                        <span class="live-dot"></span> 08 pessoas comprando agora
+                    </p>
+                </div>
+
+                <div class="offer-body-redesign">
+                    <h3 class="plan-label">Pacote Básico Completo</h3>
+
+                    <div class="price-showcase">
+                        <span class="old-price-small">R$ 297,00</span>
+                        <span class="big-price-huge pulse-price">R$ 97,00</span>
+
+                        <div class="discount-pill">67% OFF - Preço Promocional</div>
+                        <p class="price-analogy">Menos que um dia de produção.</p>
+                    </div>
+
+                    <ul class="benefits-list-redesign">
+                        <li><span class="check">✓</span> 30+ Receitas de Geladinho Gourmet</li>
+                        <li><span class="check">✓</span> 25+ Vídeo Aulas</li>
+                        <li><span class="check">✓</span> Bônus Vídeo Aula</li>
+                        <li><span class="check">✓</span> Ebook Dica de Cardápio</li>
+                        <li><span class="check">✓</span> Acesso Vitalício</li>
+                    </ul>
+
+                    <a href="#" class="cta-button big-btn pulse-fast">Garantir Meu Acesso Agora</a>
+
+                    <div class="security-lock">
+                        🔒 Compra 100% segura! <br> Receba seu acesso imediatamente após confirmação do pagamento.
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq alt-bg">
+        <div class="container narrow">
+            <div class="section-header center fade-in">
+                <h2>Perguntas Frequentes</h2>
+            </div>
+
+            <div class="accordion fade-in">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Como recebo o curso?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>O acesso é imediato e 100% digital! Assim que o pagamento for confirmado, você receberá um
+                            e-mail com o link para acessar a plataforma de alunos.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Preciso de utensílios caros?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Não! Você pode começar apenas com um liquidificador, saquinhos para geladinho e os
+                            ingredientes. O curso ensina o método manual e com jarra.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Sou iniciante, vou conseguir vender?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Com certeza. Além das receitas, temos um módulo exclusivo ensinando como tirar fotos que dão
+                            água na boca e como divulgar nas redes sociais.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Tenho garantia?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Sim! Você tem 7 dias para testar o curso. Se não gostar por qualquer motivo, devolvemos 100%
+                            do seu dinheiro sem perguntas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="brand">
+                <span class="footer-logo">Geladinho.</span>
+                <p>Receitas Exclusivas & Renda Extra.</p>
+            </div>
+            <div class="links">
+                <a href="#">Termos de Uso</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Contato</a>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Geladinho Gourmet Lucrativo. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
