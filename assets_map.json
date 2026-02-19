@@ -1,0 +1,72 @@
+{
+  "img/capirinhaVodka.png": {
+    "webp_path": "img/capirinhaVodka.webp",
+    "width": 800,
+    "height": 1200
+  },
+  "img/danoninho.png": {
+    "webp_path": "img/danoninho.webp",
+    "width": 800,
+    "height": 1200
+  },
+  "img/G.png": {
+    "webp_path": "img/G.webp",
+    "width": 800,
+    "height": 800
+  },
+  "img/geladinho-ninho-nutela.png": {
+    "webp_path": "img/geladinho-ninho-nutela.webp",
+    "width": 800,
+    "height": 1200
+  },
+  "img/geladinhOreo.png": {
+    "webp_path": "img/geladinhOreo.webp",
+    "width": 800,
+    "height": 1200
+  },
+  "img/iphonePng.png": {
+    "webp_path": "img/iphonePng.webp",
+    "width": 800,
+    "height": 1200
+  },
+  "img/limaoChocolate.png": {
+    "webp_path": "img/limaoChocolate.webp",
+    "width": 800,
+    "height": 1200
+  },
+  "img/livroIphone.png": {
+    "webp_path": "img/livroIphone.webp",
+    "width": 800,
+    "height": 533
+  },
+  "img/maracuja.png": {
+    "webp_path": "img/maracuja.webp",
+    "width": 800,
+    "height": 1200
+  },
+  "img/pacoca.png": {
+    "webp_path": "img/pacoca.webp",
+    "width": 800,
+    "height": 1200
+  },
+  "img/sonhoDeValsa.png": {
+    "webp_path": "img/sonhoDeValsa.webp",
+    "width": 800,
+    "height": 1200
+  },
+  "img/pessoas/pessoaA.jpg": {
+    "webp_path": "img/pessoas/pessoaA.webp",
+    "width": 728,
+    "height": 971
+  },
+  "img/pessoas/pessoaB.jpg": {
+    "webp_path": "img/pessoas/pessoaB.webp",
+    "width": 800,
+    "height": 1064
+  },
+  "img/pessoas/pessoaC.jpg": {
+    "webp_path": "img/pessoas/pessoaC.webp",
+    "width": 474,
+    "height": 632
+  }
+}

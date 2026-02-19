@@ -6,46 +6,224 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Aprenda a fazer geladinhos gourmet irresistíveis e crie uma renda extra em casa com mais de 50 receitas exclusivas.">
-    <meta name="theme-color" content="#FA8072"> <!-- Matches navbar color -->
+    <meta name="theme-color" content="#FA8072">
     <title>Geladinho Gourmet Lucrativo | Renda Extra em Casa</title>
 
-    <!-- Typography -->
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.youtube.com">
+    <link rel="preconnect" href="https://connect.facebook.net">
+
+    <!-- Critical CSS & Async Styles -->
+    <style>
+        /* Minified Critical CSS */
+        :root {
+            --color-pistachio: #FA8072;
+            --color-pistachio-light: #FFE0E0;
+            --color-pistachio-dark: #D32F2F;
+            --color-chocolate: #4E342E;
+            --color-chocolate-light: #795548;
+            --color-chocolate-rich: #3E2723;
+            --color-cream: #FFF9C4;
+            --color-off-white: #ffffff;
+            --color-gold: #FFB300;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 32px;
+            --shadow-soft: 0 10px 30px -10px rgba(250, 128, 114, 0.15);
+            --shadow-hover: 0 20px 40px -12px rgba(211, 47, 47, 0.2);
+            --shadow-gold: 0 0 20px rgba(255, 179, 0, 0.3)
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-off-white);
+            color: var(--color-chocolate);
+            line-height: 1.6;
+            overflow-x: hidden
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            color: var(--color-chocolate);
+            font-weight: 700
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s ease
+        }
+
+        ul {
+            list-style: none
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm)
+        }
+
+        .narrow {
+            max-width: 800px
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--color-chocolate);
+            padding-top: max(var(--spacing-sm), env(safe-area-inset-top));
+            box-shadow: 0 5px 20px rgba(62, 39, 35, 0.4)
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            padding-bottom: 20px
+        }
+
+        .nav-drips {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            z-index: 1;
+            pointer-events: none
+        }
+
+        .drip-svg-nav {
+            width: 100%;
+            height: 100%;
+            display: block
+        }
+
+        .drip-svg-nav path {
+            fill: var(--color-chocolate)
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--color-off-white);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3)
+        }
+
+        .nav-badge {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-gold);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            animation: subtlePulse 2s infinite ease-in-out
+        }
+
+        .hero {
+            position: relative;
+            padding: 60px 0 100px;
+            background: #ffffff;
+            overflow: hidden
+        }
+
+        .hero-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: var(--spacing-lg);
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-md)
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--color-chocolate-light);
+            margin-bottom: var(--spacing-md);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto
+        }
+    </style>
+    <link rel="preload" href="styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="styles.min.css">
+    </noscript>
+
+    <!-- Typography -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Dancing+Script:wght@700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
 
-    <link rel="shortcut icon" href="img/G.png" type="image/x-icon">
-    <link rel="icon" href="img/G.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/G.webp" type="image/webp">
+    <link rel="icon" href="img/G.webp" type="image/webp">
 
-    <link rel="stylesheet" href="styles.css">
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code (Deferred) -->
     <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e); t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
+        // Defer Pixel load until interaction
+        function loadPixel() {
+            if (window.pixelLoaded) return;
+            window.pixelLoaded = true;
+            !function (f, b, e, v, n, t, s) {
+                if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
+                if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+                n.queue = []; t = b.createElement(e); t.async = !0;
+                t.src = v; s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+            }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1402265661346765');
+            fbq('track', 'PageView');
         }
-            (window, document, 'script',
-                'https://connect.facebook.net/en_US/fbevents.js');
-
-        fbq('init', '1402265661346765');
-        fbq('track', 'PageView');
+        window.addEventListener('scroll', loadPixel, { once: true });
+        window.addEventListener('mousemove', loadPixel, { once: true });
+        window.addEventListener('touchstart', loadPixel, { once: true });
+        setTimeout(loadPixel, 5000); // Fallback
     </script>
-
-    <noscript>
-        <img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1402265661346765&ev=PageView&noscript=1" />
-    </noscript>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1402265661346765&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 
 </head>
@@ -157,22 +335,25 @@
         <div class="container">
             <div class="section-header center fade-in">
                 <h2>Um Pouco das Receitas...<br>👩‍🍳</h2>
-                
+
             </div>
 
             <!-- Static Gallery (Replaced Carousel) -->
             <div class="static-gallery-container fade-in">
 
                 <div class="static-slide">
-                    <img src="img/geladinho-ninho-nutela.png" alt="Geladinho Ninho com Nutella">
+                    <img src="img/geladinho-ninho-nutela.webp" alt="Geladinho Ninho com Nutella" width="800"
+                        height="1200" loading="lazy" decoding="async">
                 </div>
 
                 <div class="static-slide">
-                    <img src="img/danoninho.png" alt="Geladinho Oreo">
+                    <img src="img/danoninho.webp" alt="Geladinho Oreo" width="800" height="1200" loading="lazy"
+                        decoding="async">
                 </div>
 
                 <div class="static-slide">
-                    <img src="img/sonhoDeValsa.png" alt="Geladinho Oreo">
+                    <img src="img/sonhoDeValsa.webp" alt="Geladinho Oreo" width="800" height="1200" loading="lazy"
+                        decoding="async">
                 </div>
 
             </div>
@@ -205,7 +386,8 @@
                     <div class="col-visual-drink fade-in delay-100">
                         <!-- Placeholder for User's Vodka Image -->
                         <div class="drink-image-container">
-                            <img src="img/capirinhaVodka.png" alt="Geladinhos Alcoólicos" class="drink-img">
+                            <img src="img/capirinhaVodka.webp" alt="Geladinhos Alcoólicos" class="drink-img" width="800"
+                                height="1200" loading="lazy" decoding="async">
 
                             <div class="glow-effect"></div>
                         </div>
@@ -293,39 +475,40 @@
                     <div class="arrow-indicator">👇</div>
                 </div>
 
-                  <div class="bonus-iphone-container fade-in">
-                <img src="img/livroIphone.png" alt="Bônus no Celular" class="bonus-iphone-visual">
-            </div>
-
-            <!-- Bonus Chapters Title -->
-
-
-            <!-- Bonus Chapters List -->
-            <div class="bonus-chapters-container fade-in">
-                <div class="chapter-pill">
-                    <span class="chapter-check">✓</span>
-                    <span class="chapter-text">Cárdapio Organizado </span>
-
-                </div>
-                <div class="chapter-pill">
-                    <span class="chapter-check">✓</span>
-                    <span class="chapter-text">Estratégias de Venda Rápida </span>
-
-                </div>
-                <div class="chapter-pill">
-                    <span class="chapter-check">✓</span>
-                    <span class="chapter-text">Dicas Práticas para Aumentar suas Vendas </span>
-
+                <div class="bonus-iphone-container fade-in">
+                    <img src="img/livroIphone.webp" alt="Bônus no Celular" class="bonus-iphone-visual" width="800"
+                        height="533" loading="lazy" decoding="async">
                 </div>
 
+                <!-- Bonus Chapters Title -->
 
 
-            </div>
+                <!-- Bonus Chapters List -->
+                <div class="bonus-chapters-container fade-in">
+                    <div class="chapter-pill">
+                        <span class="chapter-check">✓</span>
+                        <span class="chapter-text">Cárdapio Organizado </span>
 
-            
+                    </div>
+                    <div class="chapter-pill">
+                        <span class="chapter-check">✓</span>
+                        <span class="chapter-text">Estratégias de Venda Rápida </span>
+
+                    </div>
+                    <div class="chapter-pill">
+                        <span class="chapter-check">✓</span>
+                        <span class="chapter-text">Dicas Práticas para Aumentar suas Vendas </span>
+
+                    </div>
 
 
-            <!-- UPSELL 
+
+                </div>
+
+
+
+
+                <!-- UPSELL 
 
             <div class="customer-speech-bubble fade-in">
                 <span class="emoji">🤔</span> "Poxa, mas eu queria algo a mais..."
@@ -358,7 +541,7 @@
 
             </div> 
             -->
-        </div>
+            </div>
     </section>
 
     <!-- Audience Section -->
@@ -393,7 +576,8 @@
                     <p class="test-text">"Vendi 50 geladinhos só no meu condomínio no primeiro fim de semana. A receita
                         de Ninho com Nutella é sucesso absoluto!🙏"</p>
                     <div class="test-author">
-                        <img src="img/pessoas/pessoa3.avif" class="author-img" alt="Foto Aluno">
+                        <img src="img/pessoas/pessoa3.avif" class="author-img" alt="Foto Aluno" width="50" height="50"
+                            loading="lazy" decoding="async">
                         <div class="author-info">
                             <h5>Renata S.</h5>
                             <span class="location">São Paulo, SP</span>
@@ -407,7 +591,8 @@
                     <p class="test-text">"Nunca imaginei faturar com geladinho. Hoje é minha renda principal
                         trabalhando de casa, consegui fazer as receitas rapidinhoo hahaha"</p>
                     <div class="test-author">
-                        <img src="img/pessoas/pessoa1.avif" class="author-img" alt="Foto Aluno">
+                        <img src="img/pessoas/pessoa1.avif" class="author-img" alt="Foto Aluno" width="50" height="50"
+                            loading="lazy" decoding="async">
                         <div class="author-info">
                             <h5>Fernanda L.</h5>
                             <span class="location">Rio de Janeiro, RJ</span>
@@ -421,7 +606,8 @@
                     <p class="test-text">"A base que o curso ensina é perfeita, muito prático. Meus clientes
                         amam o de Ninho com Nutella aqui. "</p>
                     <div class="test-author">
-                        <img src="img/pessoas/pessoaA.jpg" class="author-img" alt="Foto Aluno">
+                        <img src="img/pessoas/pessoaA.webp" class="author-img" alt="Foto Aluno" width="50" height="50"
+                            loading="lazy" decoding="async">
                         <div class="author-info">
                             <h5>Ana Maria C.</h5>
                             <span class="location">Recife, PE</span>
@@ -435,7 +621,8 @@
                     <p class="test-text">"Comecei com 50 reais emprestados do meu marido. Hoje já consigo ajudar em casa
                         ❤️"</p>
                     <div class="test-author">
-                        <img src="img/pessoas/pessoaB.jpg" class="author-img" alt="Foto Aluno">
+                        <img src="img/pessoas/pessoaB.webp" class="author-img" alt="Foto Aluno" width="50" height="50"
+                            loading="lazy" decoding="async">
                         <div class="author-info">
                             <h5>Luciana M.</h5>
                             <span class="location">Belo Horizonte, MG</span>
@@ -449,7 +636,8 @@
                     <p class="test-text">"Melhor investimento que fiz. Paguei o curso com a primeira fornada. Super
                         recomendo a todas! "</p>
                     <div class="test-author">
-                        <img src="img/pessoas/pessoaC.jpg" class="author-img" alt="Foto Aluno">
+                        <img src="img/pessoas/pessoaC.webp" class="author-img" alt="Foto Aluno" width="50" height="50"
+                            loading="lazy" decoding="async">
                         <div class="author-info">
                             <h5>Julia R.</h5>
                             <span class="location">Curitiba, PR</span>
@@ -462,7 +650,8 @@
                     <div class="quote-icon">❝</div>
                     <p class="test-text">"O ebook de preço me ajudou muito a me organizar, estiva perdida kkk."</p>
                     <div class="test-author">
-                        <img src="img/pessoas/pessoaD.avif" class="author-img" alt="Foto Aluno">
+                        <img src="img/pessoas/pessoaD.avif" class="author-img" alt="Foto Aluno" width="50" height="50"
+                            loading="lazy" decoding="async">
                         <div class="author-info">
                             <h5>Carla F.</h5>
                             <span class="location">Salvador, BA</span>
@@ -581,7 +770,7 @@
             <div class="links">
                 <a href="#">Termos de Uso</a>
                 <a href="#">Política de Privacidade</a>
-                
+
             </div>
             <div class="copyright">
                 &copy; 2026 Geladinho Gourmet Lucrativo. Todos os direitos reservados.
@@ -589,7 +778,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>
