@@ -435,36 +435,92 @@ body::before {
     font-weight: 500;
 }
 
+
 .pill.highlight-red {
-    background: #D32F2F;
-    /* Red background */
+    background: #43A047;
+    /* Success Green */
+    /* Vibrant Green */
     color: white;
     /* White text */
     font-weight: 700;
     /* Bold */
-    border: 1px solid #B71C1C;
-    box-shadow: 0 4px 10px rgba(211, 47, 47, 0.4);
-    /* Red Glow */
+    border: 1px solid #2E7D32;
+    box-shadow: 0 4px 10px rgba(67, 160, 71, 0.4);
+    /* Green Glow */
     transform: scale(1.05);
 }
 
 /* Buttons */
 .cta-button {
     display: inline-block;
-    background: linear-gradient(135deg, var(--color-pistachio-dark), var(--color-pistachio));
+    background: linear-gradient(135deg, var(--color-pistachio-dark), #B71C1C);
+    /* Deeper Red for impact */
     color: white;
-    padding: 18px 36px;
+    padding: 24px 48px;
+    /* Bigger padding */
     border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    box-shadow: 0 10px 20px rgba(147, 197, 114, 0.4);
+    font-weight: 800;
+    /* Extra bold */
+    font-size: 1.4rem;
+    /* Larger text */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 15px 30px rgba(211, 47, 47, 0.5);
+    /* Stronger shadow */
     position: relative;
     overflow: hidden;
+    margin-bottom: 2rem;
+    /* Add space below button */
+    transition: all 0.3s ease;
 }
 
 .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(147, 197, 114, 0.5);
+    transform: translateY(-5px) scale(1.05);
+    /* Grow on hover */
+    box-shadow: 0 20px 40px rgba(211, 47, 47, 0.6);
+    background: linear-gradient(135deg, #E53935, #C62828);
+    /* Brighter on hover */
+}
+
+/* --- Hero Trust Row (Modern) --- */
+.hero-trust-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin-top: -10px;
+    /* Pull closer to button */
+    display: inline-flex;
+    /* Fit content */
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.trust-icon {
+    font-size: 1.2rem;
+}
+
+.trust-text strong {
+    color: #2E7D32;
+    /* Green for trust/security */
+    font-weight: 700;
+}
+
+.divider-vertical {
+    width: 1px;
+    height: 20px;
+    background: #e0e0e0;
 }
 
 .cta-button.big-btn {
@@ -3172,4 +3228,23 @@ body::before {
     font-weight: 700;
     color: #111 !important;
     margin-top: 10px;
+}
+
+/* --- VSL Video --- */
+.vsl-wrapper {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border: 4px solid #fff;
+    background: #000;
+    /* Maintain aspect ratio if needed, but video tag usually handles auto height */
+}
+
+.vsl-video {
+    width: 100%;
+    height: auto;
+    display: block;
 }
