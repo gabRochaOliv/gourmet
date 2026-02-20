@@ -8,6 +8,8 @@
         content="Aprenda a fazer geladinhos gourmet irresistíveis e crie uma renda extra em casa com mais de 50 receitas exclusivas.">
     <meta name="theme-color" content="#FA8072">
     <title>Geladinho Gourmet Lucrativo | Renda Extra em Casa</title>
+    <!-- Configuração de Referrer para permitir embeds do YouTube corretamente (evita Erro 153) -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -187,6 +189,20 @@
             margin-left: auto;
             margin-right: auto
         }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            aspect-ratio: 9 / 16;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
     </style>
     <link rel="preload" href="styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
@@ -304,11 +320,13 @@
                     <strong>vídeo aulas curtas</strong>, explicadas <strong>passo a passo</strong>, sem complicação.
                 </p>
 
-                <div class="vsl-wrapper">
-                    <video controls class="vsl-video" preload="metadata" playsinline>
-                        <source src="vsl/vsl.mp4" type="video/mp4">
-                        Seu navegador não suporta a tag de vídeo.
-                    </video>
+                <div class="video-wrapper">
+                    <iframe loading="lazy"
+                        src="https://www.youtube-nocookie.com/embed/u4rvyxZPwwQ?rel=0&modestbranding=1&playsinline=1&origin=https://gelagourmet.shop"
+                        title="VSL" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
                 </div>
 
 
@@ -343,17 +361,23 @@
 
                 <div class="static-slide">
                     <img src="img/geladinho-ninho-nutela.webp" alt="Geladinho Ninho com Nutella" width="800"
-                        height="1200" loading="lazy" decoding="async">
+                        height="1200" loading="lazy" decoding="async"
+                        srcset="img/geladinho-ninho-nutela.webp 480w, img/geladinho-ninho-nutela.webp 768w, img/geladinho-ninho-nutela.webp 1200w"
+                        sizes="(max-width: 768px) 100vw, 1200px">
                 </div>
 
                 <div class="static-slide">
                     <img src="img/danoninho.webp" alt="Geladinho Oreo" width="800" height="1200" loading="lazy"
-                        decoding="async">
+                        decoding="async"
+                        srcset="img/danoninho.webp 480w, img/danoninho.webp 768w, img/danoninho.webp 1200w"
+                        sizes="(max-width: 768px) 100vw, 1200px">
                 </div>
 
                 <div class="static-slide">
                     <img src="img/sonhoDeValsa.webp" alt="Geladinho Oreo" width="800" height="1200" loading="lazy"
-                        decoding="async">
+                        decoding="async"
+                        srcset="img/sonhoDeValsa.webp 480w, img/sonhoDeValsa.webp 768w, img/sonhoDeValsa.webp 1200w"
+                        sizes="(max-width: 768px) 100vw, 1200px">
                 </div>
 
             </div>
@@ -387,7 +411,9 @@
                         <!-- Placeholder for User's Vodka Image -->
                         <div class="drink-image-container">
                             <img src="img/capirinhaVodka.webp" alt="Geladinhos Alcoólicos" class="drink-img" width="800"
-                                height="1200" loading="lazy" decoding="async">
+                                height="1200" loading="lazy" decoding="async"
+                                srcset="img/capirinhaVodka.webp 480w, img/capirinhaVodka.webp 768w, img/capirinhaVodka.webp 1200w"
+                                sizes="(max-width: 768px) 100vw, 1200px">
 
                             <div class="glow-effect"></div>
                         </div>
@@ -477,7 +503,9 @@
 
                 <div class="bonus-iphone-container fade-in">
                     <img src="img/livroIphone.webp" alt="Bônus no Celular" class="bonus-iphone-visual" width="800"
-                        height="533" loading="lazy" decoding="async">
+                        height="533" loading="lazy" decoding="async"
+                        srcset="img/livroIphone.webp 480w, img/livroIphone.webp 768w, img/livroIphone.webp 1200w"
+                        sizes="(max-width: 768px) 100vw, 1200px">
                 </div>
 
                 <!-- Bonus Chapters Title -->
