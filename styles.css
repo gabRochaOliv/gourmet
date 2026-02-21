@@ -15,11 +15,11 @@
     --color-chocolate-rich: #3E2723;
     /* Darker Brown */
 
-    --color-cream: #FFF9C4;
+    --color-cream: #ffffff;
     /* Light Yellow/Cream - Ice Cream feel */
     --color-off-white: #ffffff;
     /* Pure White (Safe) */
-    --color-gold: #FFB300;
+    --color-gold: #ffffff;
     /* Rich Yellow/Gold - Passion Fruit/Secondary */
 
     --font-heading: 'Playfair Display', serif;
@@ -297,7 +297,7 @@ ul {
     position: absolute;
     bottom: -25px;
     right: -10px;
-    background: #fff9c4;
+    background: #ffffff;
     padding: 2px 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 20;
@@ -1739,92 +1739,174 @@ body::before {
     padding-top: 20px;
 }
 
-/* Testimonials */
+/* Testimonials Slider Redesign */
 .testimonials {
-    background: linear-gradient(135deg, #fff 0%, var(--color-off-white) 100%);
-}
-
-/* Testimonials */
-.testimonials {
-    background-color: var(--color-off-white);
+    background-color: var(--color-chocolate-rich);
+    padding: var(--spacing-xl) 0;
     position: relative;
     overflow: hidden;
+    /* Clean up top/bottom borders if any */
 }
 
-.testimonial-card {
-    background: white;
-    padding: 20px;
-    /* Reduced padding for compactness */
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    position: relative;
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(62, 39, 35, 0.1);
-    border-color: var(--color-pistachio-light);
-}
-
-/* Big Quote Watermark */
-.quote-watermark {
-    position: absolute;
-    top: 5px;
-    right: 15px;
-    font-size: 4rem;
-    /* Reduced size */
-    line-height: 1;
-    font-family: 'Playfair Display', serif;
-    color: var(--color-pistachio);
-    opacity: 0.15;
-    pointer-events: none;
-}
-
-.test-text {
-    font-style: italic;
-    color: #4a4a4a;
-    margin-bottom: 15px;
-    /* Reduced margin */
-    font-size: 0.9rem;
-    /* Smaller font */
-    line-height: 1.5;
+.test-header {
+    text-align: center;
+    margin-bottom: 3rem;
     position: relative;
     z-index: 2;
 }
 
-/* User Image & Author Layout */
-.test-author {
+.test-header h2 {
+    font-size: 3rem;
+    color: var(--color-off-white);
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    /* Important for bleed effect */
+    margin: 0 auto;
+    overflow: hidden;
+    cursor: grab;
+    padding: 20px 0 40px;
+}
+
+.slider-container:active {
+    cursor: grabbing;
+}
+
+.slider-track {
     display: flex;
     align-items: center;
-    gap: 12px;
-    border-top: 1px solid #f0f0f0;
-    padding-top: 15px;
+    /* keep cards vertically centered */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+    /* Optional: padding to help center visually if needed, but JS will do the exact centering */
 }
 
-.author-img {
-    width: 40px;
-    height: 40px;
+/* Card sizing to show 3 cards (center big, edges bleeding off) */
+.slider-card {
+    flex: 0 0 320px;
+    /* Fixed width to allow bleed */
+    margin: 0 15px;
+    /* Gap */
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    /* Rounder corner */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    opacity: 0.5;
+    transform: scale(0.85);
+    /* Default scaled down */
+}
+
+.slider-card.active {
+    opacity: 1;
+    transform: scale(1.05);
+    /* Slightly popped out center card */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--color-pistachio-light);
+    z-index: 2;
+}
+
+.test-quote {
+    font-size: 1rem;
+    color: var(--color-chocolate);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-align: center;
+    /* Quote centered */
+    font-weight: 500;
+}
+
+/* Flex layout for user info */
+.test-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Center the whole block horizontally */
+    gap: 15px;
+    margin-top: auto;
+    /* Push to bottom */
+}
+
+.user-img {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.author-info h5 {
-    font-size: 0.95rem;
-    /* Reduced size */
-    margin-bottom: 0;
-    color: var(--color-chocolate);
+.user-meta {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    /* Align text next to avatar */
+}
+
+.user-name {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: var(--color-chocolate-rich);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.user-loc {
+    font-size: 0.7rem;
+    color: #a0a0a0;
+    text-transform: uppercase;
     font-weight: 700;
 }
 
-.location {
-    font-size: 0.75rem;
-    /* Reduced size */
-    color: #888;
-    display: block;
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1rem;
+    padding-bottom: 10px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--color-pistachio);
+    transform: scale(1.3);
+    border-radius: 50%;
+    /* Image shows simple highlighted dot */
+}
+
+/* Slider Mobile adjustments */
+@media (max-width: 768px) {
+    .test-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .slider-card {
+        flex: 0 0 280px;
+        /* Slightly narrower on mobile */
+        margin: 0 10px;
+        padding: 2rem 1.5rem;
+    }
 }
 
 /* --- Responsive --- */
@@ -2091,12 +2173,12 @@ body::before {
 
 /* --- Alcoholic Section (New) --- */
 .special-alcoholic {
-    /* Solid Yellow Background as requested */
-    background: #FFF176;
+    /* White Background as requested */
+    background: #ffffff;
     color: var(--color-chocolate);
     position: relative;
-    padding-top: 0;
-    /* Removing top padding to let wave sit flush */
+    padding-top: 50px;
+    /* Add some padding since wave merges */
     padding-bottom: var(--spacing-xl);
 }
 
@@ -2144,7 +2226,7 @@ body::before {
 }
 
 .wave-divider-bottom .shape-fill {
-    fill: #FFD54F;
+    fill: #ffffff;
     /* Matches Modules Start Color */
 }
 
@@ -2246,63 +2328,45 @@ body::before {
 }
 
 .modules {
-    /* Transition from Yellow (Alcoholic) to White */
-    background: linear-gradient(180deg, #FFD54F 0%, #FFF9C4 30%, #fff 100%);
+    background: #fff !important;
+    background-image: none !important;
 }
 
-.audience {
-    background: linear-gradient(180deg, #fff 0%, #FFFDE7 100%);
-}
-
+.audience,
 .offer {
-    background: linear-gradient(180deg, #FFFDE7 0%, #E8F5E9 100%);
+    background: #fff !important;
+    background-image: none !important;
 }
 
-/* Background Pattern/Noise */
-.special-alcoholic::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(circle at 20% 50%, rgba(76, 175, 80, 0.2), transparent 40%),
-        radial-gradient(circle at 80% 20%, rgba(156, 39, 176, 0.2), transparent 40%);
-    z-index: 1;
-}
-
+/* No background pattern for clean white look */
 .special-alcoholic .container {
     position: relative;
     z-index: 2;
 }
 
 .special-alcoholic h2 {
-    color: white;
-    font-size: 3rem;
+    color: var(--color-pistachio);
+    font-size: 2.5rem;
     margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
 }
 
 .special-alcoholic h3 {
-    color: #FFF9C4;
-    /* Light Yellow Core */
-    text-shadow:
-        0 0 5px #FFF59D,
-        0 0 10px #FFF176,
-        0 0 20px #FFD700,
-        0 0 40px #FFC107,
-        0 0 80px #FFAB00,
-        0 0 90px #FFD700;
-    font-size: 2.5rem;
-    font-family: 'Inter', sans-serif;
+    color: var(--color-chocolate);
+    text-shadow: none;
+    font-size: 3.5rem;
+    font-family: 'Playfair Display', serif;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     margin-bottom: var(--spacing-md);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
-    /* No animation */
     text-align: center;
     line-height: 1.2;
 }
@@ -2366,7 +2430,7 @@ body::before {
 }
 
 .profit-highlight {
-    background: linear-gradient(90deg, #FFD700, #FFA000);
+    background: linear-gradient(90deg, #ffffff, #ffffff);
     color: #3E2723;
     display: inline-block;
     padding: 10px 20px;
@@ -2469,7 +2533,7 @@ body::before {
 }
 
 .module-item {
-    background: white;
+    background: rgb(171, 66, 66);
     padding: 20px;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-soft);
@@ -2655,7 +2719,7 @@ body::before {
 
 .cover-design .subtitle {
     font-family: var(--font-body);
-    color: #FFD54F;
+    color: #ffffff;
     /* Gold */
     letter-spacing: 4px;
     /* Elegant spacing */
@@ -3247,4 +3311,21 @@ body::before {
     width: 100%;
     height: auto;
     display: block;
+}
+
+body,
+.section,
+section,
+.modules,
+.audience,
+.offer,
+.special-alcoholic,
+.features {
+    background: #fff !important;
+    background-image: none !important;
+}
+
+.section.modules.alt-bg {
+    background: #fff !important;
+    background-image: none !important;
 }

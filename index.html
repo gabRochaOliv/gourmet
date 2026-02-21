@@ -193,8 +193,8 @@
         .video-wrapper {
             position: relative;
             width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
+            max-width: 350px;
+            margin: 0 auto 30px auto;
             aspect-ratio: 9 / 16;
         }
 
@@ -202,6 +202,443 @@
             width: 100%;
             height: 100%;
             border-radius: 12px;
+        }
+
+        .youtube-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('img/play.webp') center/cover no-repeat;
+            background-color: var(--color-chocolate-rich);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        /* Darker overlay on top of the background image to make the button stand out */
+        .youtube-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            z-index: 1;
+        }
+
+        .play-button-yt {
+            position: relative;
+            z-index: 2;
+            width: 68px;
+            height: 48px;
+            background-color: rgba(33, 33, 33, 0.8);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s ease;
+        }
+
+        .youtube-overlay:hover .play-button-yt {
+            background-color: #FF0000;
+        }
+
+        /* SVG triangle for the play icon */
+        .play-button-yt::after {
+            content: '';
+            border-style: solid;
+            border-width: 10px 0 10px 18px;
+            border-color: transparent transparent transparent white;
+            margin-left: 4px;
+            /* Slight visual tweak to center the triangle */
+        }
+
+        /* --- Premium Dark Course Info Section --- */
+        .section-refined-dark {
+            background: linear-gradient(135deg, #1f110c 0%, #0d0604 100%);
+            color: var(--color-off-white);
+            padding: var(--spacing-xxl) 0;
+            position: relative;
+            overflow: hidden;
+            margin-top: -2px;
+            /* Fix line */
+        }
+
+        .dark-title {
+            color: var(--color-off-white);
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+            text-shadow: 0 10px 30px rgba(250, 128, 114, 0.3);
+            line-height: 1.1;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 8rem;
+            max-width: 1050px;
+            margin-left: auto;
+            margin-right: auto;
+            perspective: 1200px;
+            position: relative;
+        }
+
+        .info-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .info-img-wrapper {
+            flex: 0 0 calc(50vw - 2rem);
+            max-width: 600px;
+            display: flex;
+            justify-content: flex-start;
+            position: relative;
+        }
+
+        .info-row .info-img-wrapper {
+            margin-left: calc(50% - 50vw);
+        }
+
+        .info-row.reverse .info-img-wrapper {
+            margin-right: calc(50% - 50vw);
+            margin-left: auto;
+            justify-content: flex-end;
+        }
+
+        /* Enforcing Scroll Animations (Stronger) */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(80px) scale(0.95);
+            transition: opacity 1.2s ease-out, transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .delay-100 {
+            transition-delay: 100ms;
+        }
+
+        .delay-200 {
+            transition-delay: 200ms;
+        }
+
+        .delay-300 {
+            transition-delay: 300ms;
+        }
+
+        /* Floating animation for edge images */
+        @keyframes floatSmoothEdge {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Creative Image Shape - Edge Glued */
+        .img-premium-card {
+            width: 100%;
+            height: 480px;
+            border-radius: 0 40px 40px 0;
+            object-fit: cover;
+            border: 2px solid rgba(250, 128, 114, 0.4);
+            border-left: none;
+            box-shadow: 20px 30px 60px rgba(0, 0, 0, 0.6);
+            /* animation removed as requested requested static photos */
+            transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2;
+            cursor: pointer;
+            filter: contrast(1.1);
+        }
+
+        .info-row.reverse .img-premium-card {
+            animation-delay: -3s;
+            border-radius: 40px 0 0 40px;
+            border-right: none;
+            border-left: 2px solid rgba(250, 128, 114, 0.4);
+            box-shadow: -20px 30px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .img-premium-card:hover {
+            box-shadow: 0 0 50px rgba(250, 128, 114, 0.4);
+            border-color: var(--color-pistachio);
+            filter: contrast(1.1) brightness(1.1);
+        }
+
+        /* Ambient glow behind image - Dark Rich effect */
+        .info-img-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(250, 128, 114, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: -1;
+            filter: blur(40px);
+            transition: all 0.5s;
+        }
+
+        .img-premium-card:hover~.info-img-wrapper::before {
+            opacity: 1;
+        }
+
+        .info-content {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            background-color: #120a07;
+            /* Super dark from reference */
+            padding: 3.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(216, 183, 121, 0.15);
+            /* Subtle gold border instead of pink */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .info-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(216, 183, 121, 0.1);
+            border-color: rgba(216, 183, 121, 0.3);
+        }
+
+        .info-content.align-right {
+            text-align: center;
+        }
+
+        .info-description {
+            font-size: 1.4rem;
+            line-height: 1.7;
+            color: #e5e7eb;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .info-description strong {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.45rem;
+            text-shadow: 0 0 15px rgba(216, 183, 121, 0.5);
+            /* Glow gold na promessa principal */
+        }
+
+        /* Striking Titles - Standardized for Checklist Cards too */
+        .highlight-title-box {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            position: relative;
+            border-bottom: 1px solid rgba(216, 183, 121, 0.2);
+            /* Discrete gold line instead of pink */
+        }
+
+        .highlight-title-box::after {
+            display: none;
+        }
+
+        .highlight-title-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 2.3rem;
+            /* Premium gradient text */
+            background: linear-gradient(to right, #ffffff 20%, var(--color-pistachio) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .info-content.align-right .highlight-title-box h3 {
+            background: linear-gradient(to left, #ffffff 20%, var(--color-pistachio) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Ambient floating dots as decor */
+        .info-content::after {
+            content: '✦';
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            font-size: 2rem;
+            color: var(--color-pistachio);
+            opacity: 0.15;
+            animation: pulseSoft 4s infinite;
+        }
+
+        @keyframes pulseSoft {
+
+            0%,
+            100% {
+                opacity: 0.1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.3;
+                transform: scale(1.2);
+            }
+        }
+
+        .info-content.align-right::after {
+            right: auto;
+            left: 30px;
+        }
+
+        /* SVG Waves for transitions */
+        .wave-top-refined {
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 2;
+        }
+
+        .wave-top-refined svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+
+        .wave-top-refined .shape-fill {
+            fill: #ffffff;
+            /* Matches hero bg */
+        }
+
+        .wave-bottom-refined {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 2;
+            transform: rotate(180deg);
+        }
+
+        .wave-bottom-refined svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+
+        .wave-bottom-refined .shape-fill {
+            fill: #ffffff;
+            /* Matches features section bg */
+        }
+
+        /* Responsividade para o zigzag (Mobile) */
+        @media (max-width: 768px) {
+
+            .info-row,
+            .info-row.reverse {
+                flex-direction: column;
+                gap: 2rem;
+                margin-bottom: 5rem;
+                text-align: center;
+            }
+
+            .info-row .info-img-wrapper {
+                margin-left: -1rem;
+                width: calc(100% + 2rem);
+                max-width: 100vw;
+                justify-content: flex-start;
+            }
+
+            .info-row.reverse .info-img-wrapper {
+                margin-right: -1rem;
+                margin-left: auto;
+                width: calc(100% + 2rem);
+                max-width: 100vw;
+                justify-content: flex-end;
+            }
+
+            .info-content,
+            .info-content.align-right {
+                text-align: center;
+                padding: 2.5rem 1.5rem;
+            }
+
+            .info-content::after {
+                display: none;
+            }
+
+            .highlight-title-box {
+                justify-content: center;
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 20, 147, 0.2);
+            }
+
+            .img-premium-card {
+                width: 90%;
+                height: 340px;
+                border-radius: 0 40px 40px 0;
+            }
+
+            .info-row.reverse .img-premium-card {
+                border-radius: 40px 0 0 40px;
+            }
+
+            .info-img-wrapper::before {
+                width: 290px;
+                height: 380px;
+            }
+
+            .dark-title {
+                font-size: 2.8rem;
+                padding: 0 10px;
+                margin-top: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .highlight-title-box h3 {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
+            .highlight-title-box::after,
+            .info-content.align-right .highlight-title-box::after {
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--color-pistachio);
+            }
+
+            .info-content:hover .highlight-title-box::after {
+                width: 100px;
+            }
         }
     </style>
     <link rel="preload" href="styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -225,7 +662,7 @@
             window.pixelLoaded = true;
             !function (f, b, e, v, n, t, s) {
                 if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
-                if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+                if (!f._fbq) _fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
                 n.queue = []; t = b.createElement(e); t.async = !0;
                 t.src = v; s = b.getElementsByTagName(e)[0];
                 s.parentNode.insertBefore(t, s)
@@ -321,7 +758,11 @@
                 </p>
 
                 <div class="video-wrapper">
-                    <iframe loading="lazy"
+                    <div class="youtube-overlay" id="ytOverlay">
+                        <div class="play-button-yt"></div>
+                    </div>
+                    <!-- Note that autoplay=1 is NOT here initially, JS will add it -->
+                    <iframe id="ytIframe" loading="lazy"
                         src="https://www.youtube-nocookie.com/embed/u4rvyxZPwwQ?rel=0&modestbranding=1&playsinline=1&origin=https://gelagourmet.shop"
                         title="VSL" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -348,90 +789,140 @@
         <div class="wave-bottom"></div>
     </header>
 
-    <!-- What You Get Section -->
-    <section class="section features" id="features">
-        <div class="container">
-            <div class="section-header center fade-in">
-                <h2>Um Pouco das Receitas...<br>👩‍🍳</h2>
-
-            </div>
-
-            <!-- Static Gallery (Replaced Carousel) -->
-            <div class="static-gallery-container fade-in">
-
-                <div class="static-slide">
-                    <img src="img/geladinho-ninho-nutela.webp" alt="Geladinho Ninho com Nutella" width="800"
-                        height="1200" loading="lazy" decoding="async"
-                        srcset="img/geladinho-ninho-nutela.webp 480w, img/geladinho-ninho-nutela.webp 768w, img/geladinho-ninho-nutela.webp 1200w"
-                        sizes="(max-width: 768px) 100vw, 1200px">
-                </div>
-
-                <div class="static-slide">
-                    <img src="img/danoninho.webp" alt="Geladinho Oreo" width="800" height="1200" loading="lazy"
-                        decoding="async"
-                        srcset="img/danoninho.webp 480w, img/danoninho.webp 768w, img/danoninho.webp 1200w"
-                        sizes="(max-width: 768px) 100vw, 1200px">
-                </div>
-
-                <div class="static-slide">
-                    <img src="img/sonhoDeValsa.webp" alt="Geladinho Oreo" width="800" height="1200" loading="lazy"
-                        decoding="async"
-                        srcset="img/sonhoDeValsa.webp 480w, img/sonhoDeValsa.webp 768w, img/sonhoDeValsa.webp 1200w"
-                        sizes="(max-width: 768px) 100vw, 1200px">
-                </div>
-
-            </div>
+    <!-- NOVA SEÇÃO: COMO FUNCIONA E O QUE VOCÊ VAI APRENDER (Luxo Escuro) -->
+    <section class="section-refined-dark">
+        <!-- SVG Transition Top (Fluid Wave) -->
+        <div class="wave-top-refined">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+                preserveAspectRatio="none">
+                <path fill="#ffffff" fill-opacity="1"
+                    d="M0,224L60,213.3C120,203,240,181,360,186.7C480,192,600,224,720,224C840,224,960,192,1080,165.3C1200,139,1320,117,1380,106.7L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+                </path>
+            </svg>
         </div>
+
+        <div class="container" style="position: relative; z-index: 5; padding-top: 4rem;">
+
+            <!-- Parte 1: Mas Como Funciona o Curso? -->
+            <h2 class="dark-title fade-in">COMO FUNCIONA?</h2>
+
+            <div class="info-row fade-in delay-100">
+                <div class="info-img-wrapper">
+                    <img src="img/geladinho-ninho-nutela.webp" alt="Passo a passo" class="img-premium-card"
+                        loading="lazy" decoding="async">
+                </div>
+                <!-- Cakto Members Access Info Card -->
+                <div class="dark-info-box fade-in">
+                    <p class="dark-info-text">
+                        Acesso liberado a <strong>+25 aulas práticas 100% em vídeo</strong> direto ao ponto pela
+                        excelente plataforma <strong>Cakto Members</strong>. Aprenda o passo a passo exato e testado
+                        para faturar alto no universo Gourmet. É copiar e colar, zero complicação!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Espaçador Maior para dividir os temas -->
+            <div
+                style="height: 1px; background: linear-gradient(90deg, transparent, rgba(216,183,121,0.4), transparent); width: 80%; margin: 60px auto;">
+            </div>
+
+            <!-- Parte 2: O Que Você Vai Aprender -->
+
+            <h2 class="dark-title fade-in">O QUE VAI APRENDER</h2>
+
+            <!-- Checklist O Que Vai Aprender (Elegant Dark Cards) -->
+            <div class="info-row reverse fade-in delay-100" style="align-items: stretch; margin-bottom: 4rem;">
+
+                <!-- Image Glued to the Right -->
+                <div class="info-img-wrapper" style="align-items: center; justify-content: flex-end;">
+                    <img src="img/cozinhando.jpg" alt="Passo a passo" class="img-premium-card" loading="lazy"
+                        decoding="async">
+                </div>
+
+                <!-- Column of Elegant Dark Checklist Cards to the Left -->
+                <div
+                    style="flex: 1; display: flex; flex-direction: column; gap: 2rem; justify-content: center; padding: 2rem 0;">
+
+                    <!-- Item 1: Receitas de Ouro -->
+                    <div class="dark-check-card">
+                        <svg viewBox="0 0 24 24" fill="none" class="dark-check-icon" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <h3 class="dark-check-text">RECEITAS DE OURO</h3>
+                    </div>
+
+                    <!-- Item 2: Qualidade Máxima -->
+                    <div class="dark-check-card">
+                        <svg viewBox="0 0 24 24" fill="none" class="dark-check-icon" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <h3 class="dark-check-text">QUALIDADE MÁXIMA</h3>
+                    </div>
+
+                    <!-- Item 3: Lucro Previsível -->
+                    <div class="dark-check-card">
+                        <svg viewBox="0 0 24 24" fill="none" class="dark-check-icon" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <h3 class="dark-check-text">LUCRO PREVISÍVEL</h3>
+                    </div>
+
+                    <!-- Item 4: Conservação Perfeita -->
+                    <div class="dark-check-card">
+                        <svg viewBox="0 0 24 24" fill="none" class="dark-check-icon" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <h3 class="dark-check-text">CONSERVAÇÃO PERFEITA</h3>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Full Bleed Static Banner Image (Dinheiro/Comprando de fora a fora) -->
+        <div
+            style="width: 100%; height: 50vh; min-height: 350px; max-height: 500px; overflow: hidden; position: relative;">
+
+            <!-- Efeito de Papel Rasgado (Torn Edge SVG) no topo -->
+
+
+            <img src="img/dinheiro.jpg" alt="Rendimento e Precificação"
+                style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; border-radius: 0;">
+        </div>
+
+        <!-- SVG Transition Bottom -->
+        <div class="wave-bottom-refined">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+            </svg>
+        </div>
+
+        
     </section>
+
+    <!-- Large CTA Button placed exactly between sections -->
+    <div style="text-align: center; margin: 2rem auto -2rem; position: relative; z-index: 15;">
+        <a href="#offer" class="btn pulse" style="font-size: 1.3rem; padding: 1.2rem 2.5rem; width: 90%; max-width: 450px; border-radius: 50px; text-transform: uppercase; font-weight: 800; display: inline-block; 
+           background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); 
+           color: #4A2B11; 
+           border: 2px solid #FFF59D;
+           box-shadow: 0 10px 30px rgba(255, 165, 0, 0.4), inset 0 2px 5px rgba(255, 255, 255, 0.6);
+           text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);">
+            Acessar o curso Agora
+        </a>
+    </div>
+
+    <!-- What You Get Section -->
 
     <!-- Detailed Content Modules -->
     <!-- Special Alcoholic Section (New) -->
-    <section class="section special-alcoholic" id="alcoholic">
-
-        <!-- Wave Transition -->
-        <div class="wave-divider">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                preserveAspectRatio="none">
-                <path
-                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                    class="shape-fill"></path>
-            </svg>
-        </div>
-
-        <div class="container">
-
-            <div class="row">
-                <div class="special-badge fade-in"> Incluso Também ✓</div>
-                <div class="col-text fade-in">
-                    <h2>Linha Drinks</h2>
-                    <h3>Caipirinha </h3>
-
-
-                    <div class="col-visual-drink fade-in delay-100">
-                        <!-- Placeholder for User's Vodka Image -->
-                        <div class="drink-image-container">
-                            <img src="img/capirinhaVodka.webp" alt="Geladinhos Alcoólicos" class="drink-img" width="800"
-                                height="1200" loading="lazy" decoding="async"
-                                srcset="img/capirinhaVodka.webp 480w, img/capirinhaVodka.webp 768w, img/capirinhaVodka.webp 1200w"
-                                sizes="(max-width: 768px) 100vw, 1200px">
-
-                            <div class="glow-effect"></div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- Wave Transition Bottom -->
-        <div class="wave-divider-bottom">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                preserveAspectRatio="none">
-                <path
-                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                    class="shape-fill"></path>
-            </svg>
-        </div>
-    </section>
 
     <!-- Detailed Content Modules -->
     <section class="section modules alt-bg">
@@ -489,205 +980,271 @@
         </div>
     </section>
 
+    <!-- Infinite Showcase Carousel Section (Geladinhos) -->
+    <section class="section showcase-marquee">
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <!-- Set 1 -->
+                <div class="gelato-sc-card">
+                    <div class="gsc-img-wrap"><img src="img/geladinho-ninho-nutela.webp" alt="Ninho com Nutella"
+                            loading="lazy"></div>
+                </div>
+                <div class="gelato-sc-card">
+                    <div class="gsc-img-wrap"><img src="img/geladinhOreo.webp" alt="Oreo" loading="lazy"></div>
+                </div>
+                <div class="gelato-sc-card">
+                    <div class="gsc-img-wrap"><img src="img/danoninho.webp" alt="Danoninho" loading="lazy"></div>
+                </div>
+                <div class="gelato-sc-card">
+                    <div class="gsc-img-wrap"><img src="img/limaoChocolate.webp" alt="Limão com Chocolate"
+                            loading="lazy"></div>
+                </div>
+                <div class="gelato-sc-card">
+                    <div class="gsc-img-wrap"><img src="img/maracuja.webp" alt="Maracujá" loading="lazy"></div>
+                </div>
+                <div class="gelato-sc-card">
+                    <div class="gsc-img-wrap"><img src="img/pacoca.webp" alt="Paçoca" loading="lazy"></div>
+                </div>
+                <div class="gelato-sc-card">
+                    <div class="gsc-img-wrap"><img src="img/sonhoDeValsa.webp" alt="Sonho de Valsa" loading="lazy">
+                    </div>
+                </div>
+                <div class="gelato-sc-card">
+                    <div class="gsc-img-wrap"><img src="img/capirinhaVodka.webp" alt="Caipirinha com Vodka"
+                            loading="lazy"></div>
+                </div>
+
+                <!-- Set 2 (Clone that makes the infinite scroll look seamless) -->
+                <div class="gelato-sc-card">
+                    <div class="gsc-img-wrap"><img src="img/geladinho-ninho-nutela.webp" alt="Ninho com Nutella"
+                            loading="lazy"></div>
+                </div>
+                <div class="gelato-sc-card">
+                    <div class="gsc-img-wrap"><img src="img/geladinhOreo.webp" alt="Oreo" loading="lazy"></div>
+                </div>
+                <div class="gelato-sc-card">
+                    <div class="gsc-img-wrap"><img src="img/danoninho.webp" alt="Danoninho" loading="lazy"></div>
+                </div>
+                <div class="gelato-sc-card">
+                    <div class="gsc-img-wrap"><img src="img/limaoChocolate.webp" alt="Limão com Chocolate"
+                            loading="lazy"></div>
+                </div>
+                <div class="gelato-sc-card">
+                    <div class="gsc-img-wrap"><img src="img/maracuja.webp" alt="Maracujá" loading="lazy"></div>
+                </div>
+                <div class="gelato-sc-card">
+                    <div class="gsc-img-wrap"><img src="img/pacoca.webp" alt="Paçoca" loading="lazy"></div>
+                </div>
+                <div class="gelato-sc-card">
+                    <div class="gsc-img-wrap"><img src="img/sonhoDeValsa.webp" alt="Sonho de Valsa" loading="lazy">
+                    </div>
+                </div>
+                <div class="gelato-sc-card">
+                    <div class="gsc-img-wrap"><img src="img/capirinhaVodka.webp" alt="Caipirinha com Vodka"
+                            loading="lazy"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section features" id="features">
         <div class="container">
 
-            <!-- Bonus Alert Box -->
-            <div class="bonus-alert-box fade-in">
-                <div class="alert-icon">🎁</div>
-                <div class="alert-content">
-                    <span class="alert-sub">Incluso Também:</span>
-
-                    <div class="arrow-indicator">👇</div>
+            <!-- Premium Bonus Box Redesign -->
+            <div class="premium-bonus-card fade-in">
+                <div class="premium-badge-wrapper">
+                    <span class="premium-badge-orange">🎁 BÔNUS PREMIUM INCLUSO</span>
                 </div>
 
-                <div class="bonus-iphone-container fade-in">
-                    <img src="img/livroIphone.webp" alt="Bônus no Celular" class="bonus-iphone-visual" width="800"
-                        height="533" loading="lazy" decoding="async"
-                        srcset="img/livroIphone.webp 480w, img/livroIphone.webp 768w, img/livroIphone.webp 1200w"
-                        sizes="(max-width: 768px) 100vw, 1200px">
+                <h3 class="premium-bonus-title">Cardápio Irresistível</h3>
+                <h4 class="premium-bonus-subtitle">Seu Menu Profissional de Geladinhos Gourmet</h4>
+
+
+
+                <div class="premium-pill-list">
+                    <div class="premium-pill-item">
+                        <span class="pill-icon">📋</span>
+                        <span class="pill-text">Cardápio visual organizado e atrativo</span>
+                    </div>
+                    <div class="premium-pill-item">
+                        <span class="pill-icon">🍓</span>
+                        <span class="pill-text">Seleção dos sabores premium mais pedidos</span>
+                    </div>
+                    <div class="premium-pill-item">
+                        <span class="pill-icon">�</span>
+                        <span class="pill-text">Estratégias de gatilhos mentais para vendas</span>
+                    </div>
+                    <div class="premium-pill-item">
+                        <span class="pill-icon">🚀</span>
+                        <span class="pill-text">Dicas de fidelização de clientes fiéis</span>
+                    </div>
                 </div>
 
-                <!-- Bonus Chapters Title -->
+                <p class="premium-bonus-footer">
+                    Material exclusivo focado em te dar postura de profissional e aumentar a percepção de valor dos seus
+                    geladinhos.
+                </p>
 
-
-                <!-- Bonus Chapters List -->
-                <div class="bonus-chapters-container fade-in">
-                    <div class="chapter-pill">
-                        <span class="chapter-check">✓</span>
-                        <span class="chapter-text">Cárdapio Organizado </span>
-
-                    </div>
-                    <div class="chapter-pill">
-                        <span class="chapter-check">✓</span>
-                        <span class="chapter-text">Estratégias de Venda Rápida </span>
-
-                    </div>
-                    <div class="chapter-pill">
-                        <span class="chapter-check">✓</span>
-                        <span class="chapter-text">Dicas Práticas para Aumentar suas Vendas </span>
-
-                    </div>
-
-
-
+                <div style="text-align: center; margin: 4rem auto 2rem; position: relative; z-index: 15;">
+                    <a href="#offer" class="btn pulse" style="font-size: 1.3rem; padding: 1.2rem 2.5rem; width: 90%; max-width: 450px; border-radius: 50px; text-transform: uppercase; font-weight: 800; display: inline-block; 
+           background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); 
+           color: #4A2B11; 
+           border: 2px solid #FFF59D;
+           box-shadow: 0 10px 30px rgba(255, 165, 0, 0.4), inset 0 2px 5px rgba(255, 255, 255, 0.6);
+           text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);">
+                        Garantir o Bônus Premium
+                    </a>
                 </div>
 
-
-
-
-                <!-- UPSELL 
-
-            <div class="customer-speech-bubble fade-in">
-                <span class="emoji">🤔</span> "Poxa, mas eu queria algo a mais..."
             </div>
 
-            <h2 class="special-title">Por +R$19,90 você leva: <br> <span
-                    style="font-size: 0.7em; color: #E65100; font-weight: 700;">+1 Ebook</span></h2>
 
-            <div class="grid-3">
-                <div class="card feature-card highlight fade-in delay-100">
-                    <div class="badge-bonus">ADICIONAL</div>
-                  
-                    <div class="card-icon" style="font-size: 3rem; margin-bottom: 10px;">💰</div>
-
-                    <h3 class="bonus-highlight-title">Guia do Lucro <span>Com Geladinhos Gourmet</span></h3>
-
-                    <ul class="benefit-list" style="text-align: left; margin-bottom: 20px; padding-left: 10px;">
-                        <li style="list-style: none; margin-bottom: 8px;">✅ Como lucrar com <strong>pequenos
-                                volumes</strong>.</li>
-                        <li style="list-style: none; margin-bottom: 8px;">✅ <strong>Precificação Correta</strong> (Custo
-                            real).</li>
-                        <li style="list-style: none; margin-bottom: 8px;">✅ Estratégias de venda rápida.</li>
-                    </ul>
-
-                    <div style="background: #FFF3E0; padding: 5px 15px; border-radius: 20px; display: inline-block;">
-                        <small style="color: #E65100; font-weight: 700;">Valor Isolado: <strike style="color: #999;">R$
-                                44,90</strike></small>
-                    </div>
-                </div>
-
-            </div> 
-            -->
-            </div>
     </section>
 
     <!-- Audience Section -->
 
 
-    <!-- Guarantee Section -->
-    <section class="section guarantee-section">
-        <div class="container">
-            <div class="guarantee-card fade-in">
-                <div class="guarantee-icon-container">
-                    <span class="guarantee-icon">🛡️</span>
-                </div>
-                <h3>Garantia de 7 dias. Risco zero.</h3>
-                <p>Acesse o curso e o eBook com tranquilidade. Se não gostar do conteúdo,</p>
 
-                <p>peça reembolso.</p>
-                <p class="guarantee-bold">Sem justificativa.</p>
+
+    <!-- Guarantee Section (Redesign Clean Green) -->
+    <section class="section guarantee-section-clean">
+        <div class="container">
+            <div class="guarantee-box-clean fade-in">
+
+                <!-- Shield Icon -->
+                <div class="guarantee-badge-top">
+                    <svg viewBox="0 0 24 24" fill="none" class="shield-svg" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                </div>
+
+                <h3 class="guarantee-title">Garantia Simples, Justa e Sem Complicação</h3>
+
+                <p class="guarantee-text first-line">Você não está assumindo nenhum risco.</p>
+
+
+
+                <p class="guarantee-text last-line">Sem perguntas. Sem burocracia.</p>
+
+                <!-- Bottom Tag -->
+                <div class="guarantee-bottom-tag">
+                    <div class="tag-title">
+                        <span class="check-icon">✓</span> Garantia incondicional de 7 dias
+                    </div>
+                    <div class="tag-subtitle">
+                        Ou você sente valor, ou seu dinheiro volta.
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="section testimonials">
-        <div class="container">
-            <div class="section-header center fade-in">
-                <h2>Oque os alunos dizem:</h2>
-            </div>
-            <div class="grid-3"> <!-- Changed to grid-3 for better fit of 6 items -->
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card fade-in delay-100">
-                    <div class="quote-icon">❝</div>
-                    <p class="test-text">"Vendi 50 geladinhos só no meu condomínio no primeiro fim de semana. A receita
-                        de Ninho com Nutella é sucesso absoluto!🙏"</p>
-                    <div class="test-author">
-                        <img src="img/pessoas/pessoa3.avif" class="author-img" alt="Foto Aluno" width="50" height="50"
-                            loading="lazy" decoding="async">
-                        <div class="author-info">
-                            <h5>Renata S.</h5>
-                            <span class="location">São Paulo, SP</span>
-                        </div>
-                    </div>
+    <section class="section testimonials" style="background: transparent;">
+        <div class="container" style="display: flex; justify-content: center; padding: 40px 10px;">
+
+            <!-- Mobile Phone Frame Container -->
+            <div class="testimonial-phone-frame fade-in">
+
+                <div class="test-header">
+                    <h2>Experiência dos<br>alunos</h2>
                 </div>
 
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card fade-in delay-200">
-                    <div class="quote-icon">❝</div>
-                    <p class="test-text">"Nunca imaginei faturar com geladinho. Hoje é minha renda principal
-                        trabalhando de casa, consegui fazer as receitas rapidinhoo hahaha"</p>
-                    <div class="test-author">
-                        <img src="img/pessoas/pessoa1.avif" class="author-img" alt="Foto Aluno" width="50" height="50"
-                            loading="lazy" decoding="async">
-                        <div class="author-info">
-                            <h5>Fernanda L.</h5>
-                            <span class="location">Rio de Janeiro, RJ</span>
+                <div class="slider-container delay-100">
+                    <div class="slider-track" id="slider-track">
+                        <!-- Testimonial 1 -->
+                        <div class="slider-card active">
+                            <p class="test-quote">"Vendi 50 geladinhos só no meu condomínio no primeiro fim de semana. A
+                                receita de Ninho com Nutella é sucesso absoluto! 🙏"</p>
+                            <div class="test-user">
+                                <img src="img/pessoas/pessoa3.avif" alt="Renata S." class="user-img">
+                                <div class="user-meta">
+                                    <h5 class="user-name">RENATA S.</h5>
+                                    <span class="user-loc">SÃO PAULO, SP</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="slider-card">
+                            <p class="test-quote">"Nunca imaginei faturar com geladinho. Hoje é minha renda principal
+                                trabalhando de casa, consegui fazer as receitas rapidinho hahaha"</p>
+                            <div class="test-user">
+                                <img src="img/pessoas/pessoa1.avif" alt="Fernanda L." class="user-img">
+                                <div class="user-meta">
+                                    <h5 class="user-name">FERNANDA L.</h5>
+                                    <span class="user-loc">RIO DE JANEIRO, RJ</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="slider-card">
+                            <p class="test-quote">"A base que o curso ensina é perfeita, muito prático. Meus clientes
+                                amam o
+                                de Ninho com Nutella aqui. "</p>
+                            <div class="test-user">
+                                <img src="img/pessoas/pessoaA.webp" alt="Ana Maria C." class="user-img">
+                                <div class="user-meta">
+                                    <h5 class="user-name">ANA MARIA C.</h5>
+                                    <span class="user-loc">RECIFE, PE</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 4 -->
+                        <div class="slider-card">
+                            <p class="test-quote">"Comecei com 50 reais emprestados do meu marido. Hoje já consigo
+                                ajudar em
+                                casa ❤️"</p>
+                            <div class="test-user">
+                                <img src="img/pessoas/pessoaB.webp" alt="Luciana M." class="user-img">
+                                <div class="user-meta">
+                                    <h5 class="user-name">LUCIANA M.</h5>
+                                    <span class="user-loc">BELO HORIZONTE, MG</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 5 -->
+                        <div class="slider-card">
+                            <p class="test-quote">"Melhor investimento que fiz. Paguei o curso com a primeira fornada.
+                                Super
+                                recomendo a todas! "</p>
+                            <div class="test-user">
+                                <img src="img/pessoas/pessoaC.webp" alt="Julia R." class="user-img">
+                                <div class="user-meta">
+                                    <h5 class="user-name">JULIA R.</h5>
+                                    <span class="user-loc">CURITIBA, PR</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 6 -->
+                        <div class="slider-card">
+                            <p class="test-quote">"O ebook de preço me ajudou muito a me organizar, estava perdida kkk."
+                            </p>
+                            <div class="test-user">
+                                <img src="img/pessoas/pessoaD.avif" alt="Carla F." class="user-img">
+                                <div class="user-meta">
+                                    <h5 class="user-name">CARLA F.</h5>
+                                    <span class="user-loc">SALVADOR, BA</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card fade-in delay-300">
-                    <div class="quote-icon">❝</div>
-                    <p class="test-text">"A base que o curso ensina é perfeita, muito prático. Meus clientes
-                        amam o de Ninho com Nutella aqui. "</p>
-                    <div class="test-author">
-                        <img src="img/pessoas/pessoaA.webp" class="author-img" alt="Foto Aluno" width="50" height="50"
-                            loading="lazy" decoding="async">
-                        <div class="author-info">
-                            <h5>Ana Maria C.</h5>
-                            <span class="location">Recife, PE</span>
-                        </div>
-                    </div>
+                <div class="slider-dots" id="slider-dots">
+                    <!-- Dots gerados pelo JS -->
                 </div>
+            </div> <!-- End slider-container -->
 
-                <!-- Testimonial 4 -->
-                <div class="testimonial-card fade-in delay-100">
-                    <div class="quote-icon">❝</div>
-                    <p class="test-text">"Comecei com 50 reais emprestados do meu marido. Hoje já consigo ajudar em casa
-                        ❤️"</p>
-                    <div class="test-author">
-                        <img src="img/pessoas/pessoaB.webp" class="author-img" alt="Foto Aluno" width="50" height="50"
-                            loading="lazy" decoding="async">
-                        <div class="author-info">
-                            <h5>Luciana M.</h5>
-                            <span class="location">Belo Horizonte, MG</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 5 -->
-                <div class="testimonial-card fade-in delay-200">
-                    <div class="quote-icon">❝</div>
-                    <p class="test-text">"Melhor investimento que fiz. Paguei o curso com a primeira fornada. Super
-                        recomendo a todas! "</p>
-                    <div class="test-author">
-                        <img src="img/pessoas/pessoaC.webp" class="author-img" alt="Foto Aluno" width="50" height="50"
-                            loading="lazy" decoding="async">
-                        <div class="author-info">
-                            <h5>Julia R.</h5>
-                            <span class="location">Curitiba, PR</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 6 -->
-                <div class="testimonial-card fade-in delay-300">
-                    <div class="quote-icon">❝</div>
-                    <p class="test-text">"O ebook de preço me ajudou muito a me organizar, estiva perdida kkk."</p>
-                    <div class="test-author">
-                        <img src="img/pessoas/pessoaD.avif" class="author-img" alt="Foto Aluno" width="50" height="50"
-                            loading="lazy" decoding="async">
-                        <div class="author-info">
-                            <h5>Carla F.</h5>
-                            <span class="location">Salvador, BA</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </div> <!-- End testimonial-phone-frame -->
+        </div> <!-- End container -->
     </section>
 
     <!-- Price/Offer Section -->
