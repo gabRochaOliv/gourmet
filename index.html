@@ -93,7 +93,7 @@
         }
 
         .navbar {
-            position: sticky;
+            position: relative;
             top: 0;
             left: 0;
             width: 100%;
@@ -640,6 +640,101 @@
                 width: 100px;
             }
         }
+
+        /* --- Seção de Transição com Degradê --- */
+        .cta-transition-area {
+            position: relative;
+            padding: 20px 0 60px;
+            background: linear-gradient(to bottom, #0d0604, #ffffff);
+            /* Transição suave do preto para o próximo bloco */
+            margin-top: -2px;
+            /* Remove gap */
+            z-index: 10;
+        }
+
+        /* Estilo específico para o botão dourado */
+        .btn-gold {
+            background: linear-gradient(135deg, #FFD700 0%, #FFB300 100%) !important;
+            color: #3E2723 !important;
+            box-shadow: 0 15px 30px rgba(255, 179, 0, 0.4) !important;
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(135deg, #FFF176, #FFB300) !important;
+            box-shadow: 0 20px 40px rgba(255, 179, 0, 0.6) !important;
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        /* --- Urgency Timer Design --- */
+        .urgency-timer-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .timer-block {
+            background: rgba(78, 52, 46, 0.9);
+            /* Chocolate background */
+            padding: 12px;
+            border-radius: 12px;
+            min-width: 70px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timer-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            pointer-events: none;
+        }
+
+        .timer-num {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-gold);
+            line-height: 1;
+            margin-bottom: 4px;
+            font-family: var(--font-body);
+            text-shadow: 0 0 10px rgba(255, 179, 0, 0.3);
+        }
+
+        .timer-label {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+        }
+
+        .timer-sep {
+            font-size: 2rem;
+            color: var(--color-chocolate);
+            font-weight: 800;
+            padding-top: 5px;
+            align-self: flex-start;
+        }
+
+        @media (max-width: 480px) {
+            .timer-block {
+                min-width: 60px;
+                padding: 10px;
+            }
+
+            .timer-num {
+                font-size: 1.6rem;
+            }
+        }
     </style>
     <link rel="preload" href="styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
@@ -728,9 +823,6 @@
     <nav class="navbar">
         <div class="container nav-content">
             <a href="#" class="logo">Geladinho <br>Gourmet.</a>
-            <a href="#offer" class="nav-badge">
-                ADQUIRA JÁ
-            </a>
         </div>
         <div class="nav-drips">
             <svg class="drip-svg-nav" viewBox="0 0 1440 120" preserveAspectRatio="none">
@@ -757,6 +849,8 @@
                     <strong>vídeo aulas curtas</strong>, explicadas <strong>passo a passo</strong>, sem complicação.
                 </p>
 
+                <a href="#offer" class="cta-button pulse">Conheça Nosso Curso</a>
+
                 <div class="video-wrapper">
                     <div class="youtube-overlay" id="ytOverlay">
                         <div class="play-button-yt"></div>
@@ -771,7 +865,7 @@
                 </div>
 
 
-                <a href="#offer" class="cta-button pulse">Conheça Nosso Curso</a>
+                <a href="#offer" class="cta-button pulse">Acessar Agora</a>
 
                 <div class="hero-trust-row">
                     <div class="trust-item">
@@ -808,8 +902,8 @@
 
             <div class="info-row fade-in delay-100">
                 <div class="info-img-wrapper">
-                    <img src="img/geladinho-ninho-nutela.webp" alt="Passo a passo" class="img-premium-card"
-                        loading="lazy" decoding="async">
+                    <img src="img/dinheiro.jpg" alt="Passo a passo" class="img-premium-card" loading="lazy"
+                        decoding="async">
                 </div>
                 <!-- Cakto Members Access Info Card -->
                 <div class="dark-info-box fade-in">
@@ -881,50 +975,21 @@
 
 
                 </div>
+
+                <!-- Botão CTA centralizado direto no fundo marrom (Agora Dourado) -->
+                <div style="text-align: center; margin-top: 40px; position: relative; z-index: 5;">
+                    <a href="#offer" class="cta-button pulse btn-gold">Acessar Agora</a>
+                </div>
+
             </div>
 
         </div>
 
-        <!-- Full Bleed Static Banner Image (Dinheiro/Comprando de fora a fora) -->
-        <div
-            style="width: 100%; height: 50vh; min-height: 350px; max-height: 500px; overflow: hidden; position: relative;">
-
-            <!-- Efeito de Papel Rasgado (Torn Edge SVG) no topo -->
-
-
-            <img src="img/dinheiro.jpg" alt="Rendimento e Precificação"
-                style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; border-radius: 0;">
-        </div>
-
-        <!-- SVG Transition Bottom -->
-        <div class="wave-bottom-refined">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                preserveAspectRatio="none">
-                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
-            </svg>
-        </div>
-
-        
+        <!-- Área de Transição Suave (Degradê Isolado) -->
+        <div class="cta-transition-area"></div>
     </section>
 
-    <!-- Large CTA Button placed exactly between sections -->
-    <div style="text-align: center; margin: 2rem auto -2rem; position: relative; z-index: 15;">
-        <a href="#offer" class="btn pulse" style="font-size: 1.3rem; padding: 1.2rem 2.5rem; width: 90%; max-width: 450px; border-radius: 50px; text-transform: uppercase; font-weight: 800; display: inline-block; 
-           background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); 
-           color: #4A2B11; 
-           border: 2px solid #FFF59D;
-           box-shadow: 0 10px 30px rgba(255, 165, 0, 0.4), inset 0 2px 5px rgba(255, 255, 255, 0.6);
-           text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);">
-            Acessar o curso Agora
-        </a>
-    </div>
-
-    <!-- What You Get Section -->
-
-    <!-- Detailed Content Modules -->
-    <!-- Special Alcoholic Section (New) -->
-
-    <!-- Detailed Content Modules -->
+    <!-- Detalhamento dos Módulos -->
     <section class="section modules alt-bg">
         <div class="container">
             <div class="row centered-row">
@@ -1092,7 +1157,7 @@
            border: 2px solid #FFF59D;
            box-shadow: 0 10px 30px rgba(255, 165, 0, 0.4), inset 0 2px 5px rgba(255, 255, 255, 0.6);
            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);">
-                        Garantir o Bônus Premium
+                        Garantir Agora
                     </a>
                 </div>
 
@@ -1130,7 +1195,7 @@
                 <!-- Bottom Tag -->
                 <div class="guarantee-bottom-tag">
                     <div class="tag-title">
-                        <span class="check-icon">✓</span> Garantia incondicional de 7 dias
+                        <span class="check-icon">✓</span> Garantia incondicional de <br> 7 dias
                     </div>
                     <div class="tag-subtitle">
                         Ou você sente valor, ou seu dinheiro volta.
@@ -1280,6 +1345,8 @@
                         <li><span class="check">✓</span> Ebook Dica de Cardápio</li>
                         <li><span class="check">✓</span> Acesso Vitalício</li>
                     </ul>
+
+                
 
                     <a href="https://pay.cakto.com.br/6yh9nm7_754741" class="cta-button big-btn pulse-fast">Garantir Meu
                         Acesso Agora</a>
